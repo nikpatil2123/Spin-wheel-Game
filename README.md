@@ -39,4 +39,4 @@ JavaScript: Handles the spin logic and random selection.
 Customization
 
 
-You can modify the labels by editing the array in the JavaScript file to suit your needs. For custom shapes and clipping paths, check out Clippy, a useful tool for creating CSS clip-paths.
+You can modify the labels by editing the array in the JavaScript file to suit your needs. For custom shapes and clipping paths, check out [Clippy](https://bennettfeely.com/clippy/), a useful tool for creating CSS clip-paths.
