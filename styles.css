@@ -1,22 +1,67 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
-*
-{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins',sans-serif;
-
+    font-family: 'Poppins', sans-serif;
 }
-body
-{
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: #333;
 }
-.container
-{
+
+/* Form container styling */
+.form-container {
+    background: #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #fff;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #fff;
+}
+
+.form-container label {
+    font-size: 1em;
+    color: #fff;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-container input[type="submit"], .form-container button {
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 10px 20px;
+    border: 4px solid rgba(0,0,0,0.75);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.form-container input[type="submit"]:hover, .form-container button:hover {
+    background: #ddd;
+}
+
+.container {
     position: relative;
     width: 400px;
     height: 400px;
@@ -24,8 +69,9 @@ body
     justify-content: center;
     align-items: center;
 }
-.container .spinBtn
-{
+
+/* Spin Button Styling */
+.container .spinBtn {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -39,12 +85,12 @@ body
     font-weight: 600;
     color: #333;
     letter-spacing: 0.1em;
-    border: 4px solid rgba(0,0,0,0.75);
+    border: 4px solid rgba(0, 0, 0, 0.75);
     cursor: pointer;
     user-select: none;
 }
-.container .spinBtn::before
-{
+
+.container .spinBtn::before {
     content: '';
     position: absolute;
     top: -28px;
@@ -53,8 +99,8 @@ body
     background: #fff;
     clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
 }
-.container .wheel
-{
+
+.container .wheel {
     position: absolute;
     top: 0;
     left: 0;
@@ -63,13 +109,11 @@ body
     background: #333;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 0 0 5px #333,
-    0 0 0 15px #fff,
-    0 0 0 18px #111;
+    box-shadow: 0 0 0 5px #333, 0 0 0 15px #fff, 0 0 0 18px #111;
     transition: transform 5s ease-in-out;
 }
-.container .wheel .number
-{
+
+.container .wheel .number {
     position: absolute;
     width: 50%;
     height: 50%;
@@ -82,19 +126,18 @@ body
     align-items: center;
     user-select: none;
     cursor: pointer;
-
 }
-.container .wheel .number span
-{
+
+.container .wheel .number span {
     position: relative;
     transform: rotate(45deg);
     font-size: 2em;
     font-weight: 700;
     color: #fff;
-    text-shadow: 3px 5px 2px rgba(0,0,0,0.15);
+    text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
 }
-.container .wheel .number span::after
-{
+
+.container .wheel .number span::after {
     content: '$';
     position: absolute;
     font-size: 0.75em;
