@@ -2,10 +2,27 @@
 <html>
     <head>
         <title>Spin Wheel</title>
-        <link rel="stylesheet" type="text/css" href="styles.css"
+        <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
 <body>
-    <div class="container">
+    <!-- Form to collect user details -->
+    <div class="form-container">
+        <form id="userForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Spin wheel container (hidden initially) -->
+    <div class="container" style="display:none;">
         <div class="spinBtn"><span>spin</span></div>
         <div class="wheel">
             <div class="number" style="--i:1;--clr:#db7093;"><span>100</span></div>
@@ -18,15 +35,33 @@
             <div class="number" style="--i:8;--clr:#4169e1;"><span>20</span></div>
         </div>
     </div>
+
     <script>
         let wheel = document.querySelector('.wheel');
-        let spinBtn = document.querySelector('.spinbtn');
+        let spinBtn = document.querySelector('.spinBtn');
+        let form = document.getElementById("userForm");
+        let container = document.querySelector('.container');
         let value = Math.ceil(Math.random() * 3600);
 
-        spinBtn.onclick = function(){
-            wheel.style.transform = "rotate(" + value + "deg)";
-            value += Math.ceil(Math.random() * 3600);
+        // Form submission handler
+        form.onsubmit = function(event){
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            // Check if all fields are filled out
+            if(name && email && phone){
+                // Hide form and show wheel after form is submitted
+                form.style.display = "none";
+                container.style.display = "flex";
+            }
         }
+
+        // Spin button click handler
+        spinBtn.onclick = function(){
+            value += Math.ceil(Math.random() * 3600);
+            wheel.style.transform = "rotate(" + value + "deg)";
         }
     </script>
 </body>    
